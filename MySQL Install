@@ -1,0 +1,11 @@
+RPASS="<%=cypher.read('secret/mysql_root')%>"
+
+#Install MySQL
+apt update -y
+apt install mysql-server -y
+
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$RPASS';"
+
+#Default bind address is to localhost. Comment out to allow remote connection to database
+sed -e '/^bind/s/^/#/g' -i /etc/mysql/mysql.conf.d/mysqld.cnf
+systemctl restart mysql.service
