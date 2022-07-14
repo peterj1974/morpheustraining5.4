@@ -48,7 +48,7 @@ phpinfo();
 EOF
 
 #Configure the database
-sshpass -p $CIPASS ssh -oStrictHostKeyChecking=no -t {ENTER CLOUDINIT USER HERE}@$MYSQL_HOST <<REMOTE
+sshpass -p $CIPASS ssh -oStrictHostKeyChecking=no -t morpheusci@$MYSQL_HOST <<REMOTE
 sudo -S <<< "$CIPASS" mysql -u root -p$RPass -e "CREATE DATABASE lamp_database;"
 sudo -S <<< "$CIPASS" mysql -u root -p$RPass -e "CREATE USER 'lamp_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"
 sudo -S <<< "$CIPASS" mysql -u root -p$RPass -e "GRANT ALL ON lamp_database.* TO 'lamp_user'@'%';"
