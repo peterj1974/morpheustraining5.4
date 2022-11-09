@@ -1,6 +1,6 @@
 RPASS="<%=cypher.read('secret/mysql_root')%>"
 CIPASS="<%=cypher.read('secret/cloudinit')%>"
-MYSQL_HOST="<%=evars.MYSQL_IP%>"
+MYSQL_HOST="<%=evars.CUSTOM_MYSQL_IP%>"
 IP="<%=server.internalIp%>"
 
 #Install Apache and PHP
